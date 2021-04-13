@@ -44,19 +44,15 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log('componentDidMount');
-
     const localStorageContacts = JSON.parse(localStorage.getItem('contacts'));
     if (localStorageContacts) {
       this.setState({
         contacts: localStorageContacts,
       });
     }
-    console.log(localStorageContacts);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
     if (this.state.contacts !== prevState.contacts) {
       const contactsToStore = JSON.stringify(this.state.contacts);
       localStorage.setItem('contacts', contactsToStore);
